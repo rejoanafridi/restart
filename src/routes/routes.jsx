@@ -1,8 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../layout/Main";
 import About from "../pages/About";
-import History from "../pages/History";
+import History from "../pages/TopRated";
 import Home from "../pages/Home";
+import Cart from "../pages/Cart";
 const routes = createBrowserRouter([
 	{
 		path: "/",
@@ -17,8 +18,12 @@ const routes = createBrowserRouter([
 				element: <About />,
 			},
 			{
-				path: "/history",
+				path: "/top-rated",
 				element: <History />,
+			},
+			{
+				path: "/cart",
+				element: <Cart />,
 			},
 		],
 	},

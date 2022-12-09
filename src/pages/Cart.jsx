@@ -1,9 +1,10 @@
 import React from "react";
 import ProductCard from "../components/ProductCard";
 import { useProducts } from "../context/ProductProvider";
-const Home = () => {
+
+const Cart = () => {
 	const {
-		state: { products, loading, error },
+		state: { cart, loading, error },
 	} = useProducts();
 
 	let content;
@@ -16,13 +17,13 @@ const Home = () => {
 		content = <p>Something went wrong</p>;
 	}
 
-	if (!loading && !error && products.length === 0) {
+	if (!loading && !error && cart.length === 0) {
 		content = <p>Nothing to show, product list is empty</p>;
 	}
 
-	if (loading && !error && products.length) {
-		content = products.map((product) => (
-			<ProductCard key={product._id} product={product} />
+	if (loading && !error && cart.length) {
+		content = cart?.map((product) => (
+			<ProductCard key={product._id} product={product} cart={cart} />
 		));
 	}
 
@@ -31,4 +32,4 @@ const Home = () => {
 	);
 };
 
-export default Home;
+export default Cart;

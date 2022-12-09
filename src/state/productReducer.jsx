@@ -3,6 +3,7 @@ export const initialState = {
 	loading: false,
 	products: [],
 	error: false,
+	cart: [],
 };
 
 export const productReducer = (state, action) => {
@@ -18,6 +19,18 @@ export const productReducer = (state, action) => {
 			};
 		case actionTypes.FETCHING_ERROR:
 			return { ...state, loading: false, error: true };
+
+		case actionTypes.ADD_TO_CART:
+			return { ...state, cart: [...state.cart, action.payload] };
+
+		case actionTypes.REMOVE_CART:
+			return {
+				...state,
+				cart: [
+					...state.cart,
+					state.cart.filter((itm) => itm.id !== action.payload),
+				],
+			};
 
 		default:
 			return state;

@@ -1,7 +1,8 @@
 import React from "react";
 import ProductCard from "../components/ProductCard";
 import { useProducts } from "../context/ProductProvider";
-const Home = () => {
+
+const TopRated = () => {
 	const {
 		state: { products, loading, error },
 	} = useProducts();
@@ -21,9 +22,9 @@ const Home = () => {
 	}
 
 	if (loading && !error && products.length) {
-		content = products.map((product) => (
-			<ProductCard key={product._id} product={product} />
-		));
+		content = products
+			?.filter((product) => product.rating >= 4)
+			?.map((product) => <ProductCard key={product._id} product={product} />);
 	}
 
 	return (
@@ -31,4 +32,4 @@ const Home = () => {
 	);
 };
 
-export default Home;
+export default TopRated;

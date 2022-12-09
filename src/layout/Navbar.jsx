@@ -36,10 +36,18 @@ const Navbar = () => {
 
 									<li>
 										<Link
-											to="/history"
+											to="/top-rated"
 											className="text-gray-500 transition hover:text-gray-500/75"
 										>
-											History
+											Top-Rated
+										</Link>
+									</li>
+									<li>
+										<Link
+											to="/cart"
+											className="text-gray-500 transition hover:text-gray-500/75"
+										>
+											cart
 										</Link>
 									</li>
 								</ul>
